@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Aprimorando o particionamento em MySQL – Subpartições | Jerônimo Fagundes da Silva</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Aprimorando o particionamento em MySQL – Subpartições" />
+<meta name="author" content="Jerônimo Fagundes da Silva" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Dando seguimento ao post anterior sobre particionamento de tabelas no MySQL, este post explica um passo a mais: subparticionamento." />
+<meta property="og:description" content="Dando seguimento ao post anterior sobre particionamento de tabelas no MySQL, este post explica um passo a mais: subparticionamento." />
+<meta property="og:site_name" content="Jerônimo Fagundes da Silva" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-06-18T00:00:00-03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Aprimorando o particionamento em MySQL – Subpartições" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jerônimo Fagundes da Silva"},"dateModified":"2015-06-18T00:00:00-03:00","datePublished":"2015-06-18T00:00:00-03:00","description":"Dando seguimento ao post anterior sobre particionamento de tabelas no MySQL, este post explica um passo a mais: subparticionamento.","headline":"Aprimorando o particionamento em MySQL – Subpartições","mainEntityOfPage":{"@type":"WebPage","@id":"/aprimorando-o-particionamento-em-mysql-subparticoes/"},"url":"/aprimorando-o-particionamento-em-mysql-subparticoes/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Jerônimo Fagundes da Silva" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Jerônimo Fagundes da Silva</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/sobre/">Sobre</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Aprimorando o particionamento em MySQL – Subpartições</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2015-06-18T00:00:00-03:00" itemprop="datePublished">18/06/2015
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Dando seguimento ao <a href="https://jeronimo.dev.br/acelerando-suas-queries-com-o-particionamento-do-mysql/">post anterior sobre particionamento de tabelas no MySQL</a>, este post explica um passo a mais: subparticionamento.</p>
+
+<p>O MySQL permite que você particione uma partição, onde o primeiro nível (PARTITION) é definido por uma expressão de particionamento, e o nível inferior (SUBPARTITION) é definido por outra.</p>
+
+<p>Para utilizar o subparticionamento, é necessário seguir duas restrições:</p>
+
+<ul>
+  <li>O tipo de particionamento (PARTITION) precisa ser dos tipos RANGE ou LIST;</li>
+  <li>O tipo de particionamento (SUBPARTITION) precisa ser dos tipos HASH ou INDEX. Portanto, não é possível subparticionar tabelas particionadas por HASH ou INDEX.</li>
+</ul>
+
+<p>É importante notar que o número total de partições de uma tabela (nº de PARTITIONs * nº de SUBPARTITIONs) não pode ultrapassar 1024, que é o máximo que o MySQL suporta. Ex.: se uma tabela é particionada por RANGE em 2 partições, cada partição pode ser subparticionada em 512, pois 2 * 512 = 1024.</p>
+
+<p>Abaixo segue um exemplo de tabela subparticionada:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">ts</span> <span class="p">(</span> 
+    <span class="n">id</span> <span class="nb">INT</span><span class="p">,</span> 
+    <span class="n">purchased</span> <span class="nb">DATE</span> 
+<span class="p">)</span> <span class="k">PARTITION</span> <span class="k">BY</span> <span class="k">RANGE</span><span class="p">(</span> <span class="nb">YEAR</span><span class="p">(</span><span class="n">purchased</span><span class="p">)</span> <span class="p">)</span> 
+<span class="n">SUBPARTITION</span> <span class="k">BY</span> <span class="n">HASH</span><span class="p">(</span> <span class="n">TO_DAYS</span><span class="p">(</span><span class="n">purchased</span><span class="p">)</span> <span class="p">)</span> 
+<span class="n">SUBPARTITIONS</span> <span class="mi">2</span> <span class="p">(</span> 
+    <span class="k">PARTITION</span> <span class="n">p0</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">1990</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">p1</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">2000</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">p2</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="k">MAXVALUE</span> 
+<span class="p">);</span> 
+
+</code></pre></div></div>
+
+<p>No exemplo acima a tabela ts possui 3 partições, e cada uma é subparticionada em 2 partições. Assim, temos 6 partições no total.</p>
+
+<p>Veja outro exemplo:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">ts</span> <span class="p">(</span> 
+    <span class="n">id</span> <span class="nb">INT</span><span class="p">,</span> 
+    <span class="n">purchased</span> <span class="nb">DATE</span> 
+<span class="p">)</span> <span class="k">PARTITION</span> <span class="k">BY</span> <span class="k">RANGE</span><span class="p">(</span> <span class="nb">YEAR</span><span class="p">(</span><span class="n">purchased</span><span class="p">)</span> <span class="p">)</span> 
+<span class="n">SUBPARTITION</span> <span class="k">BY</span> <span class="n">HASH</span><span class="p">(</span> <span class="n">TO_DAYS</span><span class="p">(</span><span class="n">purchased</span><span class="p">)</span> <span class="p">)</span> <span class="p">(</span> 
+    <span class="k">PARTITION</span> <span class="n">p0</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">1990</span><span class="p">)</span> <span class="p">(</span> 
+        <span class="n">SUBPARTITION</span> <span class="n">s0</span><span class="p">,</span> 
+        <span class="n">SUBPARTITION</span> <span class="n">s1</span> 
+    <span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">p1</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">2000</span><span class="p">)</span> <span class="p">(</span> 
+        <span class="n">SUBPARTITION</span> <span class="n">s2</span> 
+    <span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">p2</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="k">MAXVALUE</span> <span class="p">(</span> 
+        <span class="n">SUBPARTITION</span> <span class="n">s3</span><span class="p">,</span> 
+        <span class="n">SUBPARTITION</span> <span class="n">s4</span> 
+    <span class="p">)</span> 
+<span class="p">);</span> 
+
+</code></pre></div></div>
+
+<p>Neste outro exemplo, a tabela ts tem 5 partições no total, pois as partições p0 e p2 são subparticionadas em 2 partições cada, mas a partição p1 tem apenas uma subpartição.</p>
+
+<p>Para saber mais sobre o subparticionamento em MySQL, consulte <a href="https://dev.mysql.com/doc/refman/5.7/en/partitioning-subpartitions.html">a documentação oficial do MySQL sobre subparticionamento</a>.</p>
+
+  </div><a class="u-url" href="/aprimorando-o-particionamento-em-mysql-subparticoes/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Jerônimo Fagundes da Silva</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jerônimo Fagundes da Silva</li><li><a class="u-email" href="mailto:contato@jeronimo.dev.br">contato@jeronimo.dev.br</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://social.poa.br/@jeronimo"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#mastodon"></use></svg> <span class="username">jeronimo</span></a></li><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>rss</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Site pessoal de Jerônimo Fagundes da Silva, Bacharel em Ciência da Computação  e Desenvolvedor de Software Backend.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

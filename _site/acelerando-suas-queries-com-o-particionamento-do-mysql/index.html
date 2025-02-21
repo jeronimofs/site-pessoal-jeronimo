@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Acelerando suas queries com o particionamento do MySQL | Jerônimo Fagundes da Silva</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Acelerando suas queries com o particionamento do MySQL" />
+<meta name="author" content="Jerônimo Fagundes da Silva" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Quando você tem uma tabela com muitos registros no MySQL, as buscas podem se tornar extremamente lentas. Uma forma de otimizar a velocidade de suas buscas pode ser particionar a tabela." />
+<meta property="og:description" content="Quando você tem uma tabela com muitos registros no MySQL, as buscas podem se tornar extremamente lentas. Uma forma de otimizar a velocidade de suas buscas pode ser particionar a tabela." />
+<meta property="og:site_name" content="Jerônimo Fagundes da Silva" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-05-24T00:00:00-03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Acelerando suas queries com o particionamento do MySQL" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jerônimo Fagundes da Silva"},"dateModified":"2015-05-24T00:00:00-03:00","datePublished":"2015-05-24T00:00:00-03:00","description":"Quando você tem uma tabela com muitos registros no MySQL, as buscas podem se tornar extremamente lentas. Uma forma de otimizar a velocidade de suas buscas pode ser particionar a tabela.","headline":"Acelerando suas queries com o particionamento do MySQL","mainEntityOfPage":{"@type":"WebPage","@id":"/acelerando-suas-queries-com-o-particionamento-do-mysql/"},"url":"/acelerando-suas-queries-com-o-particionamento-do-mysql/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Jerônimo Fagundes da Silva" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Jerônimo Fagundes da Silva</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/sobre/">Sobre</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Acelerando suas queries com o particionamento do MySQL</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2015-05-24T00:00:00-03:00" itemprop="datePublished">24/05/2015
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Quando você tem uma tabela com muitos registros no MySQL, as buscas podem se tornar extremamente lentas. Uma forma de otimizar a velocidade de suas buscas pode ser particionar a tabela.</p>
+
+<p>Quando uma tabela é particionada, é como se você tivesse várias tabelinhas menores que, juntas, compõem a tabela completa.</p>
+
+<p>Esta divisão é feita de acordo com algum critério lógico, de forma que quando você realize uma busca, o MySQL busque em apenas uma tabelinha, e não no universo todo de dados. Você não tem mais um grande universo de dados, mas vários “universinhos”. Como seu universo de busca se torna menor, a busca fica mais rápida.</p>
+
+<p>O critério lógico de particionamento sempre é definido com base nos valores de uma ou mais colunas predeterminadas. Dependendo dos valores que essas colunas assumirem, uma row é guardada em uma ou em outra partição. Assim, quando formos buscar um conjunto de dados via SELECT, dependendo dos valores especificados para aquelas colunas na cláusula WHERE, sabemos exatamente em quais partições os dados se encontram, e assim evitamos a busca nas demais partições.</p>
+
+<p>Há diversos tipos de particionamento no MySQL. Cada um atende a um tipo de critério lógico de particionamento.</p>
+
+<h2 id="particionamento-por-range">Particionamento por RANGE</h2>
+
+<p>No particionamento por RANGE, o MySQL decide quais rows vão em uma partição de acordo com um intervalo de valores de uma coluna (ou expressão baseada em colunas). Na seguinte tabela:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Funcionarios</span> <span class="p">(</span> 
+    <span class="n">cpf</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> 
+    <span class="n">nome</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> 
+    <span class="n">admissao</span> <span class="nb">DATE</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">cpf</span><span class="p">)</span> 
+<span class="p">)</span> <span class="k">PARTITION</span> <span class="k">BY</span> <span class="k">RANGE</span><span class="p">(</span><span class="k">MONTH</span><span class="p">(</span><span class="n">admissao</span><span class="p">))</span> <span class="p">(</span> 
+    <span class="k">PARTITION</span> <span class="n">primeiro_trimestre</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">4</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">segundo_trimestre</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">7</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">terceito_trimestre</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">10</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">quarto_trimestre</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="k">MAXVALUE</span> 
+<span class="p">);</span>
+
+</code></pre></div></div>
+
+<p>Definimos 4 partições baseadas no mês da asmissão:</p>
+
+<p>A partição primeiro_trimestre vai conter todos os registros de funcionários cuja admissão ocorreu nos meses 1, 2 ou 3 (janeiro, fevereiro ou março), ou seja, segundo a definição, todos os meses menores que 4. A partição segundo_trimestre conterá todos os registros de funcionários cujo mês de admissão é maior ou igual a 4 e menor que 7, ou seja, os meses de abril, maio e junho. A partição terceiro_trimestre conterá os registros de funcionários admitidos nos meses 7, 8 e 9, ou seja, julho, agosto e setembro. A partição quarto_trimestre conterá os registros dos demais funcionários. Assim, caso o seguinte select fosse feito:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Funcionarios</span> <span class="k">WHERE</span> <span class="n">admissao</span> <span class="o">=</span> <span class="s1">'2015-03-15'</span><span class="p">;</span> 
+
+</code></pre></div></div>
+
+<p>o MySQL saberia automaticamente que teria que procurar apenas na partição primeiro_trimestre, e não consideraria as outras partições na busca. O universo de busca fica muito menor, e a query mais rápida.</p>
+
+<p>É importante notar que na expressão PARTITION BY (expr), expr deve ser uma expressão que retorne necessariamente um valor inteiro.</p>
+
+<h2 id="particionamento-por-list">Particionamento por LIST</h2>
+
+<p>O particionamento por LIST é bem parecido com o RANGE. Todavia, em vez de especificarmos um intervalo de valores, vamos especificar um conjunto discreto de valores, fixos, predeterminados.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Funcionarios</span> <span class="p">(</span> 
+    <span class="n">cpf</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> 
+    <span class="n">nome</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> 
+    <span class="n">filial</span> <span class="nb">INT</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">cpf</span><span class="p">)</span> 
+<span class="p">)</span> <span class="k">PARTITION</span> <span class="k">BY</span> <span class="n">LIST</span><span class="p">(</span><span class="n">filial</span><span class="p">)</span> <span class="p">(</span> 
+    <span class="k">PARTITION</span> <span class="n">regiao_norte</span> <span class="k">VALUES</span> <span class="k">IN</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">regiao_sul</span> <span class="k">VALUES</span> <span class="k">IN</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">regiao_leste</span> <span class="k">VALUES</span> <span class="k">IN</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">regiao_oeste</span> <span class="k">VALUES</span> <span class="k">IN</span> <span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="p">);</span> 
+
+</code></pre></div></div>
+
+<p>Neste exemplo, se buscássemos todos os funcionários da filial número 5, o MySQL buscaria apenas na partição regiao_leste, que contém os funcionários das filiais 4, 5 e 6.</p>
+
+<h2 id="particionamento-por-range-columns">Particionamento por RANGE COLUMNS</h2>
+
+<p>É igual ao particionamento com RANGE, mas a expressão de particionamento pode ser de outros tipos que não um número inteiro, a saber: DATE, DATETIME, CHAR, VARCHAR, BINARY e VARBINARY. Além disso, pode-se usar tuplas de colunas em vez de uma só coluna.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">xyz</span> <span class="p">(</span> 
+    <span class="n">a</span> <span class="nb">INT</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> 
+    <span class="n">b</span> <span class="nb">INT</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> 
+    <span class="k">c</span> <span class="nb">DATETIME</span> <span class="k">NOT</span> <span class="k">NULL</span> 
+<span class="p">)</span> <span class="k">PARTITION</span> <span class="k">BY</span> <span class="k">RANGE</span> <span class="n">COLUMNS</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="k">MONTH</span><span class="p">(</span><span class="k">c</span><span class="p">))</span> <span class="p">(</span> 
+    <span class="k">PARTITION</span> <span class="n">p0</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">p1</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">p2</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">p3</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="k">MAXVALUE</span><span class="p">,</span> <span class="k">MAXVALUE</span><span class="p">)</span> 
+<span class="p">);</span>
+
+</code></pre></div></div>
+
+<p>Neste exemplo, se buscássemos por uma row em que a = 4 e c = ‘2015-10-01′, o MySQL buscaria na partição p2. Já uma row em que a = 4 e c = ‘2015-11-20′ estaria na partição p3.</p>
+
+<h2 id="particionamento-por-list-columns">Particionamento por LIST COLUMNS</h2>
+
+<p>Assim como o RANGE COLUMNS é uma extensão do RANGE, o LIST COLUMNS é uma extensão do LIST. Ele também permite que a expressão de particionamento seja de outros tipos, e também permite tuplas.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Funcionarios</span> <span class="p">(</span> 
+    <span class="n">cpf</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> 
+    <span class="n">estadoVARCHAR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">'RS'</span><span class="p">,</span> 
+    <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">cpf</span><span class="p">)</span> 
+<span class="p">)</span> <span class="k">PARTITION</span> <span class="k">BY</span> <span class="n">LIST</span> <span class="n">COLUMNS</span> <span class="p">(</span><span class="n">estado</span><span class="p">)</span> <span class="p">(</span> 
+    <span class="k">PARTITION</span> <span class="n">regiao_sul</span> <span class="k">VALUES</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'RS'</span><span class="p">,</span> <span class="s1">'SC'</span><span class="p">,</span> <span class="s1">'PR'</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">regiao_sudeste</span> <span class="k">VALUES</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'SP'</span><span class="p">,</span> <span class="s1">'RG'</span><span class="p">,</span> <span class="s1">'MG'</span><span class="p">,</span> <span class="s1">'ES'</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">regiao_centro_oeste</span> <span class="k">VALUES</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'MT'</span><span class="p">,</span> <span class="s1">'MS'</span><span class="p">,</span> <span class="s1">'GO'</span><span class="p">,</span> <span class="s1">'DF'</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">regiao_norte</span> <span class="k">VALUES</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'AC'</span><span class="p">,</span> <span class="s1">'AM'</span><span class="p">,</span> <span class="s1">'RO'</span><span class="p">,</span> <span class="s1">'RR'</span><span class="p">,</span> <span class="s1">'PA'</span><span class="p">,</span> <span class="s1">'AP'</span><span class="p">,</span> <span class="s1">'TO'</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">regiao_nordeste</span> <span class="k">VALUES</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'MA'</span><span class="p">,</span> <span class="s1">'PI'</span><span class="p">,</span> <span class="s1">'CE'</span><span class="p">,</span> <span class="s1">'RN'</span><span class="p">,</span> <span class="s1">'PB'</span><span class="p">,</span> <span class="s1">'PE'</span><span class="p">,</span> <span class="s1">'AL'</span><span class="p">,</span> <span class="s1">'SE'</span><span class="p">,</span> <span class="s1">'BA'</span><span class="p">)</span> 
+<span class="p">);</span>
+
+</code></pre></div></div>
+
+<h2 id="particionamento-por-hash-ou-por-linear-hash">Particionamento por HASH ou por LINEAR HASH</h2>
+
+<p>O particionamento por HASH é um dos mais simples, e de uso mais comum. A sua expressão de particionamento deve ser um valor inteiro. Neste tipo de particionamento, você deve especificar não só a expressão de particionamento, mas também o número de partições a utilizar. O MySQL vai nomear essas partições automaticamente, e vai escolher a melhor partição para sua row de acordo com o módulo da expressão de particionamento pelo número de partições. Esse é o tipo de particionamento recomendado se você quer ter uma distribuição semelhante de rows entre as partições.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Pedidos</span> <span class="p">(</span> 
+    <span class="n">idNOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span> 
+    <span class="n">id_cliente</span> <span class="nb">INT</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> 
+    <span class="n">valor</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> 
+    <span class="n">descricao</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> 
+<span class="p">)</span> <span class="k">PARTITION</span> <span class="k">BY</span> <span class="n">HASH</span> <span class="p">(</span><span class="n">id_cliente</span><span class="p">)</span> <span class="n">PARTITIONS</span> <span class="mi">10</span><span class="p">;</span> 
+
+</code></pre></div></div>
+
+<p>Neste exemplo, criamos 10 partições por id de cliente. Isso significa, por exemplo, que todos os pedidos do cliente com id 7 vão residir na partição 7, pois 7 % 10 = 7 (sete módulo dez é igual a sete). Já os pedidos do cliente 22 estarão todos na partição 2, pois 22 % 10 = 2.</p>
+
+<p>O número máximo de partições por tabela que o MySQL permite é 1024.</p>
+
+<p>O particionamento por LINEAR HASH é muito semelhante ao por HASH. Todavia, em vez do módulo, o MySQL usa outra fórmula baseada em potências de 2. Particionamento por KEY ou por LINEAR Key</p>
+
+<p>Muito parecida com a partição por HASH. Todavia, no particionamento por KEY, o MySQL server é que vai escolher o melhor algoritmo para o cálculo da partição resultante.</p>
+
+<p>A expressão de particionamento pode ser zero ou mais colunas, conforme segue:</p>
+
+<p>Se não é especificada nenhuma coluna, o MySQL vai usar a chave primária se houver; se não houver chave primária, vai usar uma chave única que houver. Se houver colunas especificadas, elas precisam fazer parte da chave primária ou da chave única. LINEAR KEY é semelhante à KEY, usando cálculo de potências de 2 (assim como LINEAR HASH).</p>
+
+<p>Um cuidado deve ser tomado: se você efetuar uma busca (SELECT) e não especificar na cláusula WHERE o valor da coluna de particionamento, o MySQL não vai saber em qual partição buscar, e vai acabar varrendo todas as partições para efetuar sua busca. Isso será mais lento que buscar em uma tabela não-particionada. Assim sendo, o particionamento é uma poderosa ferramenta, mas suas queries terão de ser adaptadas para aproveitar esse particionamento.</p>
+
+<p>Quer saber mais sobre particionamento no MySQL? Consulte <a href="https://dev.mysql.com/doc/refman/5.7/en/partitioning.html">a documentação oficial do MySQL sobre particionamento</a>.</p>
+
+  </div><a class="u-url" href="/acelerando-suas-queries-com-o-particionamento-do-mysql/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Jerônimo Fagundes da Silva</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jerônimo Fagundes da Silva</li><li><a class="u-email" href="mailto:contato@jeronimo.dev.br">contato@jeronimo.dev.br</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://social.poa.br/@jeronimo"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#mastodon"></use></svg> <span class="username">jeronimo</span></a></li><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>rss</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Site pessoal de Jerônimo Fagundes da Silva, Bacharel em Ciência da Computação  e Desenvolvedor de Software Backend.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

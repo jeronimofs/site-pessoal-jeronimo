@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2025-01-14T01:01:20-03:00</updated><id>/feed.xml</id><title type="html">Jerônimo Fagundes da Silva</title><subtitle>Site pessoal de Jerônimo Fagundes da Silva, Bacharel em Ciência da Computação  e Desenvolvedor de Software Backend.
+</subtitle><author><name>Jerônimo Fagundes da Silva</name></author><entry><title type="html">Como ter mais privacidade online com ferramentas grátis</title><link href="/como-ter-mais-privacidade-online-com-ferramentas-gratis/" rel="alternate" type="text/html" title="Como ter mais privacidade online com ferramentas grátis" /><published>2021-09-28T00:00:00-03:00</published><updated>2021-09-28T00:00:00-03:00</updated><id>/como-ter-mais-privacidade-online-com-ferramentas-gratis</id><content type="html" xml:base="/como-ter-mais-privacidade-online-com-ferramentas-gratis/"><![CDATA[<p>Há uma máxima que se refere a serviços online que diz que “se um produto é de graça, o produto é você”, se referindo ao fato de que grande parte dos serviços oferecidos gratuitamente na internet se mantém ao explorar os dados dos usuários (seja para objetivos relativamente inócuos, como direcionar propagandas mais assertivas, seja para objetivos mais déspotas, como vigilância em massa). Entretanto, uma frase que costumo dizer, trazendo a discussão para nossa realidade brasileira, é que “privacidade não paga boleto”.</p>
+
+<p>Isso quer dizer que para proteger nossa privacidade online é preciso sempre colocar a mão no bolso?</p>
+
+<p>Não necessariamente.</p>
+
+<p>Felizmente, há algumas ferramentas gratuitas que ajudam a preservar a nossa privacidade online (pelo menos o que resta dela). Seguem algumas recomendações:</p>
+
+<h2 id="e-mail">E-mail</h2>
+
+<p>Se você busca uma solução de e-mail segura, e com opção de criptografia de ponta a ponta, o ProtonMail é uma boa opção. Com interface em português e um plano gratuito, ele pode atender sua necessidade básica de proteção de e-mails (ainda que o e-mail seja uma tecnologia inerentemente insegura). Um ponto interessante é que o ProtonMail tem código aberto e está no GitHub.</p>
+
+<h2 id="mensagens-instantâneas">Mensagens instantâneas</h2>
+
+<p>Apesar de o e-mail ser uma ferramenta antiga e ainda presente em nossas vidas, as mensagens instantâneas vieram para ficar. Permitindo uma conexão mais ágil, e com ferramentas adicionais de chamadas de áudio e vídeo, elas superam o e-mail em nossas comunicações diárias e corriqueiras.</p>
+
+<p>Dentre as opções gratuitas disponíveis está o conhecido WhatsApp. Ele promete criptografia de ponta a ponta, apesar de ter código fechado (pertence ao Facebook). Sua vantagem é a grande base de usuários: se você quer conversar alguém, a probabilidade de encontrá-la no WhatsApp é grande.</p>
+
+<p>Outra opção gratuita, e essa de código aberto, é o Signal. Sua vantagem em relação ao WhatsApp é o codigo aberto, o que quer dizer que pode ser auditado por qualquer um que queira. A grande desvantagem é a pequena base de usuários: dificilmente a pessoa que você quer conversar utilize o Signal.</p>
+
+<h2 id="arquivosdrive">Arquivos/Drive</h2>
+
+<p>Uma excelente opção para guardar seus arquivos online gratuitamente e com mais privacidade é o Mega. Compatível com Windows, Mac, Linux, Android e iOS, ele oferece 20GB de espaço gratuito. Ainda, oferece criptografia de ponta a ponta, e tem código aberto disponível no GitHub. Ele é preferível a opções como o Google Drive, Dropbox ou OneDrive justamente porque dentre esses o Mega é o único que oferece criptografia de ponta a ponta por padrão.</p>
+
+<h2 id="navegadorbrowser">Navegador/Browser</h2>
+
+<p>O Firefox é um navegador de código aberto, e gratuito como qualquer navegador. Ele oferece sincronização dos dados de navegação (histórico, senhas, preferências, etc) com a vantagem de utilizar criptografia de ponta a ponta, ou seja, só você tem acesso a esses dados, e nem a Mozilla consegue ler. Por esse motivo, o Firefox é preferível a outras opções largamente utilizadas como o Google Chrome.</p>
+
+<p>Por enquanto é isso! Espero que tenha gostado das recomendações e, caso queira compartilhar alguma recomendação sua, pedir alguma dica de ferramenta, ou botar o papo em dia, deixe seu comentário!</p>]]></content><author><name>Jerônimo Fagundes da Silva</name></author><summary type="html"><![CDATA[Há uma máxima que se refere a serviços online que diz que “se um produto é de graça, o produto é você”, se referindo ao fato de que grande parte dos serviços oferecidos gratuitamente na internet se mantém ao explorar os dados dos usuários (seja para objetivos relativamente inócuos, como direcionar propagandas mais assertivas, seja para objetivos mais déspotas, como vigilância em massa). Entretanto, uma frase que costumo dizer, trazendo a discussão para nossa realidade brasileira, é que “privacidade não paga boleto”.]]></summary></entry><entry><title type="html">Como criptografar contatos e calendários de ponta a ponta</title><link href="/como-criptografar-contatos-e-calendarios-de-ponta-a-ponta/" rel="alternate" type="text/html" title="Como criptografar contatos e calendários de ponta a ponta" /><published>2021-04-13T00:00:00-03:00</published><updated>2021-04-13T00:00:00-03:00</updated><id>/como-criptografar-contatos-e-calendarios-de-ponta-a-ponta</id><content type="html" xml:base="/como-criptografar-contatos-e-calendarios-de-ponta-a-ponta/"><![CDATA[<p><a href="https://jeronimo.dev.br/como-enviar-email-criptografado/">Recentemente eu mostrei a forma mais fácil de enviar e-mails criptografados de ponta a ponta</a>, de forma que só você e o destinatário obtivessem acesso ao conteúdo do e-mail.</p>
+
+<p>Hoje eu compartilho com vocês outra ferramenta que ajuda na proteção de seus dados pessoais. É o <a href="https://www.etesync.com/">EteSync</a>.</p>
+
+<p>O EteSync permite a você salvar os seus contatos, calendários/agendas, notas e lembretes/tarefas de forma criptografada de ponta a ponta, e sincronizar esses dados entre seus dispositivos. Isso significa que só você terá acesso aos seus dados, e nem o pessoal da EteSync consegue ler eles. É, de longe, a ferramenta mais madura que encontrei com esse objetivo atualmente no mercado.</p>
+
+<p>Ele é compatível com Android, iOS, bem como qualquer aplicação para computador compatível com os protocolos CalDAV e CardDAV (padrão no mercado). É uma solução de código aberto, o que significa que você pode ver o código, e compilá-lo você mesmo se quiser. Ainda, é possível hospedar o próprio servidor, ou utilizar o serviço pronto deles mesmos mediante o pagamento mensal de 3 dólares.</p>
+
+<p>Um lado ruim é que, uma vez que os dados só são visíveis no seu dispositivo (e não nos servidores da EteSync), não há suporte para enviar convites de eventos para outras pessoas no calendário. Você terá que fazer isso manualmente via e-mail, por exemplo.</p>]]></content><author><name>Jerônimo Fagundes da Silva</name></author><summary type="html"><![CDATA[Recentemente eu mostrei a forma mais fácil de enviar e-mails criptografados de ponta a ponta, de forma que só você e o destinatário obtivessem acesso ao conteúdo do e-mail.]]></summary></entry><entry><title type="html">Como enviar email criptografado</title><link href="/como-enviar-email-criptografado/" rel="alternate" type="text/html" title="Como enviar email criptografado" /><published>2021-03-25T00:00:00-03:00</published><updated>2021-03-25T00:00:00-03:00</updated><id>/como-enviar-email-criptografado</id><content type="html" xml:base="/como-enviar-email-criptografado/"><![CDATA[<p>Se você quer enviar e-mails criptografados, a forma mais fácil (e grátis) de fazer isso hoje é criando uma conta no ProtonMail.</p>
+
+<p>O ProtonMail permite enviar e-mails com criptografia de ponta a ponta (o que garante que só você e quem receber o e-mail podem ler o conteúdo), em conjunto com criptografia de acesso zero (zero knowledge) para proteger os e-mails. Isto significa que nem mesmo eles do ProtonMail podem descriptografar e ler seus e-mails.</p>
+
+<p>Quando você envia um e-mail pelo ProtonMail, se o destinatário também utilizar ProtonMail, a criptografia de ponta a ponta é ativada automaticamente. Caso o destinatário use um e-mail que não seja do ProtonMail, há duas opções para garantir que só você e o destinatário tenham acesso ao conteúdo:</p>
+
+<ol>
+  <li>A primeira, e de longe mais fácil: Você pode combinar com o seu destinatário uma senha para proteger o e-mail. Assim, quando você for enviar o e-mail pelo ProtonMail para ele, basta clicar no canto inferior esquerdo no botão de cadeado. Vai abrir uma tela para que você possa digitar a senha combinada com o seu destinatário. E pronto, é só enviar. O seu destinatário vai ter que digitar a senha para ver o conteúdo (incluindo os anexos!).</li>
+  <li>A segunda alternativa é mais complicada, e é o destinatário criar um par de chaves PGP, e ele compartilha com você a chave pública, que pode ser importada na tela de contatos do ProtonMail. Assim, o ProtonMail usará essa chave importada para criptografar automaticamente ao enviar para esse contato. O destinatário precisará instalar um cliente de e-mail compatível com PGP.</li>
+</ol>
+
+<p>Como eu disse no início, o ProtonMail pode ser utilizado gratuitamente, com armazenamento de até 500MB. Caso você precise de mais espaço, ou de recursos mais avançados, como utilizar seu próprio domínio, há outros planos que são pagos e que podem ser vistos <a href="https://proton.me/pt-br/pricing">aqui</a>.</p>]]></content><author><name>Jerônimo Fagundes da Silva</name></author><summary type="html"><![CDATA[Se você quer enviar e-mails criptografados, a forma mais fácil (e grátis) de fazer isso hoje é criando uma conta no ProtonMail.]]></summary></entry><entry><title type="html">Utilizando e-mail assinado e criptografado com S/MIME</title><link href="/utilizando-e-mail-assinado-e-criptografado-com-s-mime/" rel="alternate" type="text/html" title="Utilizando e-mail assinado e criptografado com S/MIME" /><published>2021-03-04T00:00:00-03:00</published><updated>2021-03-04T00:00:00-03:00</updated><id>/utilizando-e-mail-assinado-e-criptografado-com-s-mime</id><content type="html" xml:base="/utilizando-e-mail-assinado-e-criptografado-com-s-mime/"><![CDATA[<p>Para garantir a privacidade de seus e-mails, além de usar uma senha segura e um provedor de e-mail confiável, é extremamente importante a utilização de criptografia ponta-a-ponta; esse tipo de processo garante que só você e o remetente/destinatário tem acesso ao conteúdo da mensagem. Qualquer outra entidade (pessoa, empresa, governo, etc) que obtiver uma cópia da mensagem não poderá ler o conteúdo, pois ele estará “embaralhado”. Nem mesmo o provedor do e-mail terá acesso ao conteúdo. O conteúdo é criptografado em seu dispositivo (computador, smartphone, tablet, etc), e descriptografado no dispositivo do destinatário.</p>
+
+<p>Adicionalmente, é conveniente assinar digitalmente os seus e-mails. Isso garante ao seu destinatário que o seu e-mail realmente partiu de você, e vice-versa.</p>
+
+<h2 id="tecnologias-existentes">Tecnologias existentes</h2>
+
+<p>Há duas formas bastante conhecidas de criptografar e assinar e-mails: o PGP e o S/MIME.</p>
+
+<p>No PGP, você cria um par de chaves pública e privada, onde a privada é protegida por uma senha, que deve ser digitada cada vez que você a utiliza. Você distribui a sua chave pública para seus contatos, assim eles podem enviar e-mails criptografados para você, bem como saber que e-mails enviados por você são realmente seus (mediante assinatura do e-mail). A garantia de que uma chave pertence realmente a uma pessoa não é regulada por nenhuma entidade, mas sim por um conceito de rede de confiança, onde as chaves públicas validadas por contatos nos quais você confia tornam-se também confiáveis por transitividade. Para utilizar o PGP, é necessário instalar um software para manipulação das chaves, bem como é necessário instalar uma extensão em seu cliente de e-mail que dê suporte ao PGP (às vezes, algumas extensões fazem os dois papéis: gerar as chaves e criptografar os e-mails). Outra coisa que é obrigatória é utilizar um cliente de e-mail instalado no seu dispositivo (Thunderbird, Outlook para Desktop, aplicativo de e-mail do seu smartphone, etc). Se você utiliza um webmail, o Mailvelope suporta alguns dos webmails mais famosos.</p>
+
+<p>Já no S/MIME, a configuração e utilização é bem mais fácil que o PGP. Você cria um par de chaves pública e privada que será endossada por uma autoridade certificadora acreditada mundialmente. A geração da chave segue um processo que garante que só o dono de uma conta de e-mail pode gerar a chave; ainda, por ser endossada por uma autoridade certificadora, é automaticamente aceita em qualquer cliente com suporte ao S/MIME. É obrigatória a utilização de um cliente de e-mail instalado em seu dispositivo (como o Thunderbird, Outlook para Desktop, ou o aplicativo de e-mail do seu smartphone). Entretanto, os clientes de e-mail mais populares já tem suporte nativo ao S/MIME, o que garante uma adoção mais fácil do que o PGP. A geração das chaves é feita no site da autoridade certificadora, logo, não é necessário instalar um software adicional para isso. Ainda, mesmo que seu destinatário não utilize S/MIME, você pode enviar um e-mail assinado (mas não criptografado), e o cliente de e-mail dele saberá reconhecer a assinatura, e exibir uma notificação de acordo. Até onde conheço, não é possível utilizar S/MIME com webmails.</p>
+
+<p>Neste artigo, você aprenderá gerar um certificado S/MIME gratuito e endossado por uma autoridade certificadora acreditada mundialmente, e instalar ele em seu cliente de e-mail (utilizaremos o Thunderbird como exemplo).</p>
+
+<h2 id="gerando-o-certificado-smime">Gerando o certificado S/MIME</h2>
+
+<p>Atualmente, a única autoridade certificadora que fornece certificados S/MIME para e-mails gratuitamente é a Actalis, da Itália. <a href="https://actalis.it/">Você pode solicitar o seu certificado no site deles</a>, e o certificado virá por e-mail. Siga o processo que é descrito no site (em inglês).</p>
+
+<p>Assim que você receber o e-mail que contém o certificado, abra o arquivo anexo (é o certificado), e siga as instruções do seu dispositivo para instalá-lo. Guarde este arquivo para instalar sua chave em todos os dispositivos que você utiliza para enviar e-mails.</p>
+
+<h2 id="clientes-que-suportam-o-smime">Clientes que suportam o S/MIME</h2>
+
+<p>Há diversos clientes que suportam o S/MIME por padrão. Vale a pena mencionar alguns:</p>
+
+<ul>
+  <li>Para desktop
+    <ul>
+      <li>Thunderbird</li>
+      <li>Outlook</li>
+      <li>Evolution</li>
+      <li>Apple Mail App (aplicativo padrão de e-mail do Mac)</li>
+    </ul>
+  </li>
+  <li>Para Android
+    <ul>
+      <li>R2Mail2</li>
+    </ul>
+  </li>
+  <li>Para iOS
+    <ul>
+      <li>Apple Mail App (aplicativo padrão de e-mail do iPhone/iPad)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="conclusão">Conclusão</h2>
+
+<p>A assinatura e criptografia via S/MIME é de fácil configuração e tem ampla aceitação pelos clientes de e-mail. Ela garante a proveniência das mensagens, e quando ambas as pontas da comunicação (remetente e destinatário) usam, sua privacidade é garantida pela criptografia de ponta a ponta. Em tempos de vigilância digital em massa, é muito conveniente que todos protejam os seus dados pessoais, ainda mais com ferramentas de padrões abertos e reconhecidos.</p>]]></content><author><name>Jerônimo Fagundes da Silva</name></author><summary type="html"><![CDATA[Para garantir a privacidade de seus e-mails, além de usar uma senha segura e um provedor de e-mail confiável, é extremamente importante a utilização de criptografia ponta-a-ponta; esse tipo de processo garante que só você e o remetente/destinatário tem acesso ao conteúdo da mensagem. Qualquer outra entidade (pessoa, empresa, governo, etc) que obtiver uma cópia da mensagem não poderá ler o conteúdo, pois ele estará “embaralhado”. Nem mesmo o provedor do e-mail terá acesso ao conteúdo. O conteúdo é criptografado em seu dispositivo (computador, smartphone, tablet, etc), e descriptografado no dispositivo do destinatário.]]></summary></entry><entry><title type="html">Instalando Phalcon Framework no Debian 8 64 bits</title><link href="/instalando-phalcon-framework-no-debian-8-64-bits/" rel="alternate" type="text/html" title="Instalando Phalcon Framework no Debian 8 64 bits" /><published>2015-09-24T00:00:00-03:00</published><updated>2015-09-24T00:00:00-03:00</updated><id>/instalando-phalcon-framework-no-debian-8-64-bits</id><content type="html" xml:base="/instalando-phalcon-framework-no-debian-8-64-bits/"><![CDATA[<p>O Phalcon é um Framework PHP de alto desempenho, pois ele é uma extensão compilada do PHP. Assim, suas classes residem já na memória do PHP por padrão, não sendo carregadas por interpretação de arquivos PHP. Isso nos provê um altíssimo desempenho e menor consumo de memória.</p>
+
+<p>Este guia nos mostra como instalar o Phalcon em 5 minutos em sua máquina Debian 8 64 bits.</p>
+
+<ul>
+  <li>Atualize seus repositórios</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+
+</code></pre></div></div>
+
+<ul>
+  <li>Instale os pacotes necessários à compilação e utilização da extensão</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install php5-dev libpcre3-dev gcc make php5-mysql git
+
+</code></pre></div></div>
+
+<ul>
+  <li>Inicie a compilação do pacote</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /opt sudo git clone –depth=1 git://github.com/phalcon/cphalcon.git cd cphalcon/build sudo ./install
+
+</code></pre></div></div>
+
+<ul>
+  <li>Aguarde o fim da compilação</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Thanks for compiling Phalcon! Build succeed: Please restart your web server to complete the installation
+
+</code></pre></div></div>
+
+<ul>
+  <li>Crie os arquivos de carregamento da extensão</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo printf “; configuration for phalcon module\n; priority=50\nextension=phalcon.so” &gt; /etc/php5/cli/conf.d/50-phalcon.ini 
+sudo printf “; configuration for phalcon module\n; priority=50\nextension=phalcon.so” &gt; /etc/php5/apache2/conf.d/50-phalcon.ini
+
+</code></pre></div></div>
+
+<ul>
+  <li>Crie um arquivo phpinfo para conferir se a extensão será carregada</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo printf “&lt;?php\nphpinfo();” &gt; /var/www/html/phpinfo.php
+
+</code></pre></div></div>
+
+<ul>
+  <li>Reinicie o apache</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo service apache2 restart
+
+</code></pre></div></div>
+
+<p>Carregue no seu navegador o phpinfo na URL http://localhost/phpinfo.php</p>
+
+<p>Se apareceu o phalcon na página do phpinfo, pronto! Sua instalação está pronta e rodando corretamente.</p>]]></content><author><name>Jerônimo Fagundes da Silva</name></author><summary type="html"><![CDATA[O Phalcon é um Framework PHP de alto desempenho, pois ele é uma extensão compilada do PHP. Assim, suas classes residem já na memória do PHP por padrão, não sendo carregadas por interpretação de arquivos PHP. Isso nos provê um altíssimo desempenho e menor consumo de memória.]]></summary></entry><entry><title type="html">Performance e Otimização de Bancos de Dados MySQL</title><link href="/performance-e-otimizacao-de-bancos-de-dados-mysql/" rel="alternate" type="text/html" title="Performance e Otimização de Bancos de Dados MySQL" /><published>2015-09-23T00:00:00-03:00</published><updated>2015-09-23T00:00:00-03:00</updated><id>/performance-e-otimizacao-de-bancos-de-dados-mysql</id><content type="html" xml:base="/performance-e-otimizacao-de-bancos-de-dados-mysql/"><![CDATA[<p>O seguinte Webinar foi apresentado ao vivo em 23/09/2015 pela empresa KingHost. Nele, eu – Jeronimo Fagundes – e Rodrigo Paris falamos sobre as melhores práticas para obter o máximo desempenho ao realizar buscas em um servidor MySQL, afim de tornar sua aplicação mais rápida, e melhorando a usabilidade da mesma.</p>
+
+<p>São apresentados 4 pontos-chave:</p>
+
+<ul>
+  <li>Indexação de tabelas</li>
+  <li>Particionamento de tabelas</li>
+  <li>Otimização de consultas</li>
+  <li>Infraestrutura</li>
+</ul>
+
+<video src="https://jeronimo.dev.br/wp-content/uploads/2024/12/webinar-kinghost---performance-e-otimização-de-bancos-de-dados-mysql.mp4"></video>]]></content><author><name>Jerônimo Fagundes da Silva</name></author><summary type="html"><![CDATA[O seguinte Webinar foi apresentado ao vivo em 23/09/2015 pela empresa KingHost. Nele, eu – Jeronimo Fagundes – e Rodrigo Paris falamos sobre as melhores práticas para obter o máximo desempenho ao realizar buscas em um servidor MySQL, afim de tornar sua aplicação mais rápida, e melhorando a usabilidade da mesma.]]></summary></entry><entry><title type="html">Aprimorando o particionamento em MySQL – Subpartições</title><link href="/aprimorando-o-particionamento-em-mysql-subparticoes/" rel="alternate" type="text/html" title="Aprimorando o particionamento em MySQL – Subpartições" /><published>2015-06-18T00:00:00-03:00</published><updated>2015-06-18T00:00:00-03:00</updated><id>/aprimorando-o-particionamento-em-mysql-subparticoes</id><content type="html" xml:base="/aprimorando-o-particionamento-em-mysql-subparticoes/"><![CDATA[<p>Dando seguimento ao <a href="https://jeronimo.dev.br/acelerando-suas-queries-com-o-particionamento-do-mysql/">post anterior sobre particionamento de tabelas no MySQL</a>, este post explica um passo a mais: subparticionamento.</p>
+
+<p>O MySQL permite que você particione uma partição, onde o primeiro nível (PARTITION) é definido por uma expressão de particionamento, e o nível inferior (SUBPARTITION) é definido por outra.</p>
+
+<p>Para utilizar o subparticionamento, é necessário seguir duas restrições:</p>
+
+<ul>
+  <li>O tipo de particionamento (PARTITION) precisa ser dos tipos RANGE ou LIST;</li>
+  <li>O tipo de particionamento (SUBPARTITION) precisa ser dos tipos HASH ou INDEX. Portanto, não é possível subparticionar tabelas particionadas por HASH ou INDEX.</li>
+</ul>
+
+<p>É importante notar que o número total de partições de uma tabela (nº de PARTITIONs * nº de SUBPARTITIONs) não pode ultrapassar 1024, que é o máximo que o MySQL suporta. Ex.: se uma tabela é particionada por RANGE em 2 partições, cada partição pode ser subparticionada em 512, pois 2 * 512 = 1024.</p>
+
+<p>Abaixo segue um exemplo de tabela subparticionada:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">ts</span> <span class="p">(</span> 
+    <span class="n">id</span> <span class="nb">INT</span><span class="p">,</span> 
+    <span class="n">purchased</span> <span class="nb">DATE</span> 
+<span class="p">)</span> <span class="k">PARTITION</span> <span class="k">BY</span> <span class="k">RANGE</span><span class="p">(</span> <span class="nb">YEAR</span><span class="p">(</span><span class="n">purchased</span><span class="p">)</span> <span class="p">)</span> 
+<span class="n">SUBPARTITION</span> <span class="k">BY</span> <span class="n">HASH</span><span class="p">(</span> <span class="n">TO_DAYS</span><span class="p">(</span><span class="n">purchased</span><span class="p">)</span> <span class="p">)</span> 
+<span class="n">SUBPARTITIONS</span> <span class="mi">2</span> <span class="p">(</span> 
+    <span class="k">PARTITION</span> <span class="n">p0</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">1990</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">p1</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">2000</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">p2</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="k">MAXVALUE</span> 
+<span class="p">);</span> 
+
+</code></pre></div></div>
+
+<p>No exemplo acima a tabela ts possui 3 partições, e cada uma é subparticionada em 2 partições. Assim, temos 6 partições no total.</p>
+
+<p>Veja outro exemplo:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">ts</span> <span class="p">(</span> 
+    <span class="n">id</span> <span class="nb">INT</span><span class="p">,</span> 
+    <span class="n">purchased</span> <span class="nb">DATE</span> 
+<span class="p">)</span> <span class="k">PARTITION</span> <span class="k">BY</span> <span class="k">RANGE</span><span class="p">(</span> <span class="nb">YEAR</span><span class="p">(</span><span class="n">purchased</span><span class="p">)</span> <span class="p">)</span> 
+<span class="n">SUBPARTITION</span> <span class="k">BY</span> <span class="n">HASH</span><span class="p">(</span> <span class="n">TO_DAYS</span><span class="p">(</span><span class="n">purchased</span><span class="p">)</span> <span class="p">)</span> <span class="p">(</span> 
+    <span class="k">PARTITION</span> <span class="n">p0</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">1990</span><span class="p">)</span> <span class="p">(</span> 
+        <span class="n">SUBPARTITION</span> <span class="n">s0</span><span class="p">,</span> 
+        <span class="n">SUBPARTITION</span> <span class="n">s1</span> 
+    <span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">p1</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">2000</span><span class="p">)</span> <span class="p">(</span> 
+        <span class="n">SUBPARTITION</span> <span class="n">s2</span> 
+    <span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">p2</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="k">MAXVALUE</span> <span class="p">(</span> 
+        <span class="n">SUBPARTITION</span> <span class="n">s3</span><span class="p">,</span> 
+        <span class="n">SUBPARTITION</span> <span class="n">s4</span> 
+    <span class="p">)</span> 
+<span class="p">);</span> 
+
+</code></pre></div></div>
+
+<p>Neste outro exemplo, a tabela ts tem 5 partições no total, pois as partições p0 e p2 são subparticionadas em 2 partições cada, mas a partição p1 tem apenas uma subpartição.</p>
+
+<p>Para saber mais sobre o subparticionamento em MySQL, consulte <a href="https://dev.mysql.com/doc/refman/5.7/en/partitioning-subpartitions.html">a documentação oficial do MySQL sobre subparticionamento</a>.</p>]]></content><author><name>Jerônimo Fagundes da Silva</name></author><summary type="html"><![CDATA[Dando seguimento ao post anterior sobre particionamento de tabelas no MySQL, este post explica um passo a mais: subparticionamento.]]></summary></entry><entry><title type="html">Acelerando suas queries com o particionamento do MySQL</title><link href="/acelerando-suas-queries-com-o-particionamento-do-mysql/" rel="alternate" type="text/html" title="Acelerando suas queries com o particionamento do MySQL" /><published>2015-05-24T00:00:00-03:00</published><updated>2015-05-24T00:00:00-03:00</updated><id>/acelerando-suas-queries-com-o-particionamento-do-mysql</id><content type="html" xml:base="/acelerando-suas-queries-com-o-particionamento-do-mysql/"><![CDATA[<p>Quando você tem uma tabela com muitos registros no MySQL, as buscas podem se tornar extremamente lentas. Uma forma de otimizar a velocidade de suas buscas pode ser particionar a tabela.</p>
+
+<p>Quando uma tabela é particionada, é como se você tivesse várias tabelinhas menores que, juntas, compõem a tabela completa.</p>
+
+<p>Esta divisão é feita de acordo com algum critério lógico, de forma que quando você realize uma busca, o MySQL busque em apenas uma tabelinha, e não no universo todo de dados. Você não tem mais um grande universo de dados, mas vários “universinhos”. Como seu universo de busca se torna menor, a busca fica mais rápida.</p>
+
+<p>O critério lógico de particionamento sempre é definido com base nos valores de uma ou mais colunas predeterminadas. Dependendo dos valores que essas colunas assumirem, uma row é guardada em uma ou em outra partição. Assim, quando formos buscar um conjunto de dados via SELECT, dependendo dos valores especificados para aquelas colunas na cláusula WHERE, sabemos exatamente em quais partições os dados se encontram, e assim evitamos a busca nas demais partições.</p>
+
+<p>Há diversos tipos de particionamento no MySQL. Cada um atende a um tipo de critério lógico de particionamento.</p>
+
+<h2 id="particionamento-por-range">Particionamento por RANGE</h2>
+
+<p>No particionamento por RANGE, o MySQL decide quais rows vão em uma partição de acordo com um intervalo de valores de uma coluna (ou expressão baseada em colunas). Na seguinte tabela:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Funcionarios</span> <span class="p">(</span> 
+    <span class="n">cpf</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> 
+    <span class="n">nome</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> 
+    <span class="n">admissao</span> <span class="nb">DATE</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">cpf</span><span class="p">)</span> 
+<span class="p">)</span> <span class="k">PARTITION</span> <span class="k">BY</span> <span class="k">RANGE</span><span class="p">(</span><span class="k">MONTH</span><span class="p">(</span><span class="n">admissao</span><span class="p">))</span> <span class="p">(</span> 
+    <span class="k">PARTITION</span> <span class="n">primeiro_trimestre</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">4</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">segundo_trimestre</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">7</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">terceito_trimestre</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">10</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">quarto_trimestre</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="k">MAXVALUE</span> 
+<span class="p">);</span>
+
+</code></pre></div></div>
+
+<p>Definimos 4 partições baseadas no mês da asmissão:</p>
+
+<p>A partição primeiro_trimestre vai conter todos os registros de funcionários cuja admissão ocorreu nos meses 1, 2 ou 3 (janeiro, fevereiro ou março), ou seja, segundo a definição, todos os meses menores que 4. A partição segundo_trimestre conterá todos os registros de funcionários cujo mês de admissão é maior ou igual a 4 e menor que 7, ou seja, os meses de abril, maio e junho. A partição terceiro_trimestre conterá os registros de funcionários admitidos nos meses 7, 8 e 9, ou seja, julho, agosto e setembro. A partição quarto_trimestre conterá os registros dos demais funcionários. Assim, caso o seguinte select fosse feito:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Funcionarios</span> <span class="k">WHERE</span> <span class="n">admissao</span> <span class="o">=</span> <span class="s1">'2015-03-15'</span><span class="p">;</span> 
+
+</code></pre></div></div>
+
+<p>o MySQL saberia automaticamente que teria que procurar apenas na partição primeiro_trimestre, e não consideraria as outras partições na busca. O universo de busca fica muito menor, e a query mais rápida.</p>
+
+<p>É importante notar que na expressão PARTITION BY (expr), expr deve ser uma expressão que retorne necessariamente um valor inteiro.</p>
+
+<h2 id="particionamento-por-list">Particionamento por LIST</h2>
+
+<p>O particionamento por LIST é bem parecido com o RANGE. Todavia, em vez de especificarmos um intervalo de valores, vamos especificar um conjunto discreto de valores, fixos, predeterminados.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Funcionarios</span> <span class="p">(</span> 
+    <span class="n">cpf</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> 
+    <span class="n">nome</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> 
+    <span class="n">filial</span> <span class="nb">INT</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">cpf</span><span class="p">)</span> 
+<span class="p">)</span> <span class="k">PARTITION</span> <span class="k">BY</span> <span class="n">LIST</span><span class="p">(</span><span class="n">filial</span><span class="p">)</span> <span class="p">(</span> 
+    <span class="k">PARTITION</span> <span class="n">regiao_norte</span> <span class="k">VALUES</span> <span class="k">IN</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">regiao_sul</span> <span class="k">VALUES</span> <span class="k">IN</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">regiao_leste</span> <span class="k">VALUES</span> <span class="k">IN</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">regiao_oeste</span> <span class="k">VALUES</span> <span class="k">IN</span> <span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="p">);</span> 
+
+</code></pre></div></div>
+
+<p>Neste exemplo, se buscássemos todos os funcionários da filial número 5, o MySQL buscaria apenas na partição regiao_leste, que contém os funcionários das filiais 4, 5 e 6.</p>
+
+<h2 id="particionamento-por-range-columns">Particionamento por RANGE COLUMNS</h2>
+
+<p>É igual ao particionamento com RANGE, mas a expressão de particionamento pode ser de outros tipos que não um número inteiro, a saber: DATE, DATETIME, CHAR, VARCHAR, BINARY e VARBINARY. Além disso, pode-se usar tuplas de colunas em vez de uma só coluna.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">xyz</span> <span class="p">(</span> 
+    <span class="n">a</span> <span class="nb">INT</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> 
+    <span class="n">b</span> <span class="nb">INT</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> 
+    <span class="k">c</span> <span class="nb">DATETIME</span> <span class="k">NOT</span> <span class="k">NULL</span> 
+<span class="p">)</span> <span class="k">PARTITION</span> <span class="k">BY</span> <span class="k">RANGE</span> <span class="n">COLUMNS</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="k">MONTH</span><span class="p">(</span><span class="k">c</span><span class="p">))</span> <span class="p">(</span> 
+    <span class="k">PARTITION</span> <span class="n">p0</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">p1</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">p2</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">p3</span> <span class="k">VALUES</span> <span class="k">LESS</span> <span class="k">THAN</span> <span class="p">(</span><span class="k">MAXVALUE</span><span class="p">,</span> <span class="k">MAXVALUE</span><span class="p">)</span> 
+<span class="p">);</span>
+
+</code></pre></div></div>
+
+<p>Neste exemplo, se buscássemos por uma row em que a = 4 e c = ‘2015-10-01′, o MySQL buscaria na partição p2. Já uma row em que a = 4 e c = ‘2015-11-20′ estaria na partição p3.</p>
+
+<h2 id="particionamento-por-list-columns">Particionamento por LIST COLUMNS</h2>
+
+<p>Assim como o RANGE COLUMNS é uma extensão do RANGE, o LIST COLUMNS é uma extensão do LIST. Ele também permite que a expressão de particionamento seja de outros tipos, e também permite tuplas.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Funcionarios</span> <span class="p">(</span> 
+    <span class="n">cpf</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> 
+    <span class="n">estadoVARCHAR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">'RS'</span><span class="p">,</span> 
+    <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">cpf</span><span class="p">)</span> 
+<span class="p">)</span> <span class="k">PARTITION</span> <span class="k">BY</span> <span class="n">LIST</span> <span class="n">COLUMNS</span> <span class="p">(</span><span class="n">estado</span><span class="p">)</span> <span class="p">(</span> 
+    <span class="k">PARTITION</span> <span class="n">regiao_sul</span> <span class="k">VALUES</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'RS'</span><span class="p">,</span> <span class="s1">'SC'</span><span class="p">,</span> <span class="s1">'PR'</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">regiao_sudeste</span> <span class="k">VALUES</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'SP'</span><span class="p">,</span> <span class="s1">'RG'</span><span class="p">,</span> <span class="s1">'MG'</span><span class="p">,</span> <span class="s1">'ES'</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">regiao_centro_oeste</span> <span class="k">VALUES</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'MT'</span><span class="p">,</span> <span class="s1">'MS'</span><span class="p">,</span> <span class="s1">'GO'</span><span class="p">,</span> <span class="s1">'DF'</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">regiao_norte</span> <span class="k">VALUES</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'AC'</span><span class="p">,</span> <span class="s1">'AM'</span><span class="p">,</span> <span class="s1">'RO'</span><span class="p">,</span> <span class="s1">'RR'</span><span class="p">,</span> <span class="s1">'PA'</span><span class="p">,</span> <span class="s1">'AP'</span><span class="p">,</span> <span class="s1">'TO'</span><span class="p">),</span> 
+    <span class="k">PARTITION</span> <span class="n">regiao_nordeste</span> <span class="k">VALUES</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'MA'</span><span class="p">,</span> <span class="s1">'PI'</span><span class="p">,</span> <span class="s1">'CE'</span><span class="p">,</span> <span class="s1">'RN'</span><span class="p">,</span> <span class="s1">'PB'</span><span class="p">,</span> <span class="s1">'PE'</span><span class="p">,</span> <span class="s1">'AL'</span><span class="p">,</span> <span class="s1">'SE'</span><span class="p">,</span> <span class="s1">'BA'</span><span class="p">)</span> 
+<span class="p">);</span>
+
+</code></pre></div></div>
+
+<h2 id="particionamento-por-hash-ou-por-linear-hash">Particionamento por HASH ou por LINEAR HASH</h2>
+
+<p>O particionamento por HASH é um dos mais simples, e de uso mais comum. A sua expressão de particionamento deve ser um valor inteiro. Neste tipo de particionamento, você deve especificar não só a expressão de particionamento, mas também o número de partições a utilizar. O MySQL vai nomear essas partições automaticamente, e vai escolher a melhor partição para sua row de acordo com o módulo da expressão de particionamento pelo número de partições. Esse é o tipo de particionamento recomendado se você quer ter uma distribuição semelhante de rows entre as partições.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Pedidos</span> <span class="p">(</span> 
+    <span class="n">idNOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span> 
+    <span class="n">id_cliente</span> <span class="nb">INT</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> 
+    <span class="n">valor</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> 
+    <span class="n">descricao</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> 
+<span class="p">)</span> <span class="k">PARTITION</span> <span class="k">BY</span> <span class="n">HASH</span> <span class="p">(</span><span class="n">id_cliente</span><span class="p">)</span> <span class="n">PARTITIONS</span> <span class="mi">10</span><span class="p">;</span> 
+
+</code></pre></div></div>
+
+<p>Neste exemplo, criamos 10 partições por id de cliente. Isso significa, por exemplo, que todos os pedidos do cliente com id 7 vão residir na partição 7, pois 7 % 10 = 7 (sete módulo dez é igual a sete). Já os pedidos do cliente 22 estarão todos na partição 2, pois 22 % 10 = 2.</p>
+
+<p>O número máximo de partições por tabela que o MySQL permite é 1024.</p>
+
+<p>O particionamento por LINEAR HASH é muito semelhante ao por HASH. Todavia, em vez do módulo, o MySQL usa outra fórmula baseada em potências de 2. Particionamento por KEY ou por LINEAR Key</p>
+
+<p>Muito parecida com a partição por HASH. Todavia, no particionamento por KEY, o MySQL server é que vai escolher o melhor algoritmo para o cálculo da partição resultante.</p>
+
+<p>A expressão de particionamento pode ser zero ou mais colunas, conforme segue:</p>
+
+<p>Se não é especificada nenhuma coluna, o MySQL vai usar a chave primária se houver; se não houver chave primária, vai usar uma chave única que houver. Se houver colunas especificadas, elas precisam fazer parte da chave primária ou da chave única. LINEAR KEY é semelhante à KEY, usando cálculo de potências de 2 (assim como LINEAR HASH).</p>
+
+<p>Um cuidado deve ser tomado: se você efetuar uma busca (SELECT) e não especificar na cláusula WHERE o valor da coluna de particionamento, o MySQL não vai saber em qual partição buscar, e vai acabar varrendo todas as partições para efetuar sua busca. Isso será mais lento que buscar em uma tabela não-particionada. Assim sendo, o particionamento é uma poderosa ferramenta, mas suas queries terão de ser adaptadas para aproveitar esse particionamento.</p>
+
+<p>Quer saber mais sobre particionamento no MySQL? Consulte <a href="https://dev.mysql.com/doc/refman/5.7/en/partitioning.html">a documentação oficial do MySQL sobre particionamento</a>.</p>]]></content><author><name>Jerônimo Fagundes da Silva</name></author><summary type="html"><![CDATA[Quando você tem uma tabela com muitos registros no MySQL, as buscas podem se tornar extremamente lentas. Uma forma de otimizar a velocidade de suas buscas pode ser particionar a tabela.]]></summary></entry></feed>
