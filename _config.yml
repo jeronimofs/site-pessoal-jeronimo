@@ -20,8 +20,8 @@ rss: rss
 
 # Mastodon instances
 mastodon:
-- username: jeronimo
-  instance: social.poa.br
+- username: jeronimofs
+  instance: mastodon.social
 # - username: jekyll2
 #   instance: example.com
 
